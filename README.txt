@@ -4,4 +4,4 @@ The file "BigDataProject.ipynb" contains my code and the datasets are categorise
 
 The tasks are explained in the Brief document.
 
-I achieved a grade of 88.2% for this module
+I achieved a grade of 90% for this assignment
