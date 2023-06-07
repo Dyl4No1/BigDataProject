@@ -1,7 +1,53 @@
 This Project was created for completion of the Big Data module at the University of Lincoln
+I achieved a grade of 90% for this assignment
 
 The file "BigDataProject.ipynb" contains my code and the datasets are categorised in the folder.
 
-The tasks are explained in the Brief document.
+The tasks given will be summarised below:
 
-I achieved a grade of 90% for this assignment
+Task 1 (Analysis of Nuclear Plant dataset):
+The dataset is of pressurised water reactors (a type of nuclear reactors) with various measurements in different parts of the reactor, including vibration, pressure and power levels. 
+The first column in the spreadsheet indicates the status of the reactor, i.e., ‘normal’ or ‘abnormal’. 
+All the other columns are features which could help us to gain insights into the status of each reactor. 
+You are asked to provide an analysis over this data to discuss if these features could be potentially used to predict whether a reactor is normal or abnormal.
+
+1.1) Load the data from the file "nuclear_plants_small_dataset.csv" into a pyspark dataframe.
+check for missing or erroneous values.
+
+1.2) Split the dataset into two separate dataframes by the subject of "Normal" and "Abnormal"
+for each group find the minimum, maximum, mean and median values and display in a boxplot.
+
+1.3) Create a correlation matrix based off of the dataset.
+I dropped the status column as its not necessary, then used the pandas library function ".corr"
+to create a correlation matrix using the pearson method and used a mixture of pyplot and seaborn
+to show a better visual of the matrix.
+
+1.4) Shuffle and split the data into a 70%:30% training:test set to be used by machine learning
+models in 1.5.
+The models required vectored input so I used VectorAssembler from the pyspark.ml library to convert the
+dataset. I then used StringIndexer to create a labelindexer for the ml models. Finally, I split and shuffled 
+the data with seed 1234 to output the number of values in each set.
+
+1.5) Train a Decision Tree, Support Vector Machine model and an Artificial Neural Network using the data from
+1.4. The model will create predicted labels of which the error rate, sensitivity and specificity
+is to be measured and displayed in a confusion matrix.
+I created a function for the reused code, then output the aforementioned statistics.
+
+Task 2 (MapReduce for Margie Travel dataset):
+The dataset is for Margie's Travel (MT) provides concierge services for business travelers. 
+In an increasingly crowded market, they are always looking for ways to differentiate themselves and provide added value to their corporate customers. 
+There are two files containing lists of data. These are located on Blackboard under Task_2_dataset. 
+
+2.1) Determine the number of flights from each airport and include a list of airports not used.
+I used a mixture of list comprehensions, pyspark functions and mapping to complete this task. for details see code.
+
+2.2) Create a list of flights based on the Flight ID. Create an output of the number of passengers per flight
+with relevant IATA/FAA codes with departure and arrival times.
+I created two functions to convert the time integers formats given and converted them into usable formats.
+see code for more details.
+
+2.3) Calculate the nautical miles and the total distance travelled by all passengers in the dataset.
+I used the Haversine formula as a function to work out the distance, another function to get the coordinates.
+for main body functionality see code.
+
+
